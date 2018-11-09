@@ -1,0 +1,19 @@
+{
+  "name": "wasit",
+  "version": "1.0.0",
+  "description": "Is a story telling platform for arabic writers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flurt/Wasit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flurt/Wasit/issues"
+  },
+  "homepage": "https://github.com/flurt/Wasit#readme"
+}
