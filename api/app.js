@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -16,5 +17,5 @@ router.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Wasit Server running on port ${  port}`);
+  console.log(`Wasit Server running on port ${port}`);
 });
