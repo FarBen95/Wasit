@@ -21,4 +21,16 @@ router.get('/:userId', (req, res) => {
   });
 });
 
+router.put('/:userId', (req, res) => {
+  res.status(200).json({
+    message: 'Handling GET user by id requests',
+  });
+});
+
+router.delete('/:userId', (req, res) => {
+  res.status(200).json({
+    message: 'Handling GET user by id requests',
+  });
+});
+
 module.exports = router;

@@ -21,4 +21,16 @@ router.get('/:publicationId', (req, res) => {
   });
 });
 
+router.put('/:publicationId', (req, res) => {
+  res.status(200).json({
+    message: 'Handling GET publication by id requests',
+  });
+});
+
+router.delete('/:publicationId', (req, res) => {
+  res.status(200).json({
+    message: 'Handling GET publication by id requests',
+  });
+});
+
 module.exports = router;

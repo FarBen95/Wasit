@@ -21,4 +21,16 @@ router.get('/:postId', (req, res) => {
   });
 });
 
+router.put('/:postId', (req, res) => {
+  res.status(200).json({
+    message: 'Handling GET post by id requests',
+  });
+});
+
+router.delete('/:postId', (req, res) => {
+  res.status(200).json({
+    message: 'Handling GET post by id requests',
+  });
+});
+
 module.exports = router;
