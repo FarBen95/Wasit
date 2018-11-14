@@ -9,7 +9,8 @@ const postSchema = new Schema({
   title: { type: String, required: true },
   contentFormat: { type: String, required: true },
   content: { type: String, require: true },
-  tags: { type: String },
+  tags: [{ type: String }],
+  status: { type: String, default: 'draft' },
   createdAt: { type: Date, default: Date.now },
   publishedAt: { type: Date, default: Date.now },
 });
