@@ -7,7 +7,7 @@ const morgan = require('morgan');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@cluster0-5pblm.mongodb.net/test?retryWrites=true', { autoIndex: false, useNewUrlParser: true });
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-5pblm.mongodb.net/test?retryWrites=true`, { autoIndex: false, useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
