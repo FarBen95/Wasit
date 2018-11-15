@@ -1,5 +1,5 @@
 ## Wasit
-Is a story telling platform for arabic writers
+Is a Storytelling platform for arabic writers
 
 ## Not ready yet
 We're building a RESTful API which we'll glue to a front-end
