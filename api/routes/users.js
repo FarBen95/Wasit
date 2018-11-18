@@ -12,9 +12,24 @@ router.get('/', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
-  res.status(201).json({
-    message: 'Handling POST requests for users',
+router.post('/signup', (req, res) => {
+  const user = new User({
+    _id: new mongoose.Types.ObjectId(),
+    name: req.body.name,
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password,
+  });
+
+  user.save().then((result) => {
+    console.log(result);
+    res.status(201).json({
+      message: 'User created successfuly',
+      user,
+    });
+  }).catch((err) => {
+    console.log(err);
+    req.status(500).json(err);
   });
 });
 
