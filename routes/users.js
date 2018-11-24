@@ -32,6 +32,23 @@ router.post('/signup', (req, res) => {
   });
 });
 
+router.post('/login', (req, res) => {
+  User.findOne({ email: req.body.email }).exec().then((result) => {
+    if (!result) {
+      res.status(401).json({
+        message: 'Authentication failed',
+      });
+    } else {
+      res.status(200).json({
+        message: 'Successful authentication',
+      });
+    }
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 router.get('/:userId', (req, res) => {
   res.status(200).json({
     message: 'Handling GET user by id requests',
