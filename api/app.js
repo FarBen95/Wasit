@@ -21,6 +21,7 @@ const postsRoute = require('./routes/posts');
 const userRoute = require('./routes/users');
 const authRoute = require('./routes/auth');
 require('./auth/google');
+require('./auth/jwt');
 
 app.get('/', (req, res) => {
   res.status(200).json({

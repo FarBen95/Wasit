@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const { Schema } = mongoose;
 
@@ -12,8 +11,5 @@ const userSchema = new Schema({
   bio: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
-
-userSchema.statics.generateHash = password => bcrypt.hashSync(password, 10);
-userSchema.statics.compareHash = password => bcrypt.compareSync(password, this.password);
 
 module.exports = mongoose.model('User', userSchema);

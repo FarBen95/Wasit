@@ -1,11 +1,10 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
-const { check, validationResult } = require('express-validator/check');
-
 const router = express.Router();
+
+const User = require('../models/user');
 
 router.get('/google', passport.authenticate('google', {
   session: false,
@@ -13,25 +12,19 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 router.get('/google/callback', passport.authenticate('google', { session: false }), (req, res) => {
-  jwt.sign({ userId: req.user.id }, 'secretkey', { expiresIn: '5 min' }, (err, token) => {
-    if (err) {
-      res.sendStatus(500);
-    } else {
-      res.json({ token });
-    }
+  // TODO: JWT signature and returning token to user
+  const token = jwt.sign(req.user.id, 'secret');
+  res.status(200).json({
+    token,
   });
 });
 
 router.get('/facebook', (req, res) => {
-  res.status(200).json({
-    message: 'facebook oauth',
-  });
+  // TODO: facebook authentication to be implemented here
 });
 
 router.get('/twitter', (req, res) => {
-  res.status(200).json({
-    message: 'twitter oauth',
-  });
+  // Twitter authentication to be implemented here
 });
 
 module.exports = router;
