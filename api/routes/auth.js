@@ -6,17 +6,31 @@ const router = express.Router();
 
 const User = require('../models/user');
 
+router.post('/', (req, res) => {
+  User.findOne({ email: req.body.email }).exec().then((result) => {
+    if (!result) {
+      return res.status(401).json({
+        message: 'Authentication failed',
+      });
+    }
+    if (result.comparePassword(req.body.password)) {
+      return res.status(200).json({
+        message: 'Authentication succeded',
+      });
+    }
+    return res.status(401).json({
+      message: 'Authentication failed',
+    });
+  }).catch(err => res.status(500).json(err));
+});
+
 router.get('/google', passport.authenticate('google', {
   session: false,
   scope: ['profile', 'email'],
 }));
 
 router.get('/google/callback', passport.authenticate('google', { session: false }), (req, res) => {
-  // TODO: JWT signature and returning token to user
-  const token = jwt.sign(req.user.id, 'secret');
-  res.status(200).json({
-    token,
-  });
+  // TODO: signing token and returning to user
 });
 
 router.get('/facebook', (req, res) => {
