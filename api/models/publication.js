@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const publicationSchema = new Schema({
-  _id: { type: Schema.Types.ObjectId, required: true },
   name: { type: String, required: true },
   description: { type: String, required: true },
   ownerId: { type: Schema.Types.ObjectId, ref: 'User', require: true },
