@@ -7,16 +7,10 @@ const userController = require('../controllers/userController');
 
 router.post('/', userController.createUser);
 
-router.get('/:userId', (req, res) => {
-  // TODO: get user by id
-});
+router.get('/:id', userController.getUserById);
 
-router.put('/:userId', (req, res) => {
-  // TODO: update user details by id
-});
+router.put('/:id', userController.updateUser);
 
-router.delete('/:userId', (req, res) => {
-  // TODO: delete user by id
-});
+router.delete('/:id', userController.deleteUser);
 
 module.exports = router;

@@ -16,3 +16,17 @@ exports.createUser = [check('email').isEmail(), check('password').isLength({ min
     }).then(user => res.json(user));
   }
 }];
+
+exports.getUserById = (req, res) => {
+  // TODO: get user information by ID
+};
+
+exports.updateUser = (req, res) => {
+  // TODO: update authenticated user information
+  // requires authentication and authorization
+};
+
+exports.deleteUser = (req, res) => {
+  // TODO: delete authenticated user
+  // requires authentication and authorization
+};

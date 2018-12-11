@@ -1,6 +1,7 @@
 const Publication = require('../models/publication');
 
 exports.createPublication = (req, res) => {
+  // requires authentication
   const publication = new Publication({
     name: req.body.name,
     description: req.body.description,
@@ -30,9 +31,11 @@ exports.getPublicationById = (req, res) => {
 
 exports.updatePublicationById = (req, res) => {
   // TODO: implementing publication update controller
+  // requires authentication and authorization
 };
 
 exports.deletePublicationById = (req, res) => {
+  // requires authentication and authorization
   const { id } = req.params;
   Publication.remove({ id }).exec().then((result) => {
     res.status(200).json(result);

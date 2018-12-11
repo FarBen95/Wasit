@@ -9,6 +9,7 @@ exports.getPosts = (req, res) => {
 };
 
 exports.createPost = (req, res) => {
+  // requires authentication
   const post = new Post({
     title: req.body.title,
     contentFormat: req.body.contentFormat,
@@ -26,6 +27,7 @@ exports.createPost = (req, res) => {
 
 exports.updatePostById = (req, res) => {
   // TODO: implementing the update post controller
+  // requires auhtentication and authorization
 };
 
 exports.getPostById = (req, res) => {
@@ -38,6 +40,7 @@ exports.getPostById = (req, res) => {
 };
 
 exports.deletePostById = (req, res) => {
+  // requires authentication and authorization
   const id = req.params.postId;
   Post.remove({ id }).exec().then((result) => {
     res.status(200).json(result);
