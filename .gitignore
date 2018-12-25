@@ -9,5 +9,8 @@ npm-debug.log
 # env
 .env
 
+# nextjs build
+.next
+
 # config files
 /api/config

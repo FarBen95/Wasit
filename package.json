@@ -4,8 +4,10 @@
   "description": "Is a story telling platform for arabic writers",
   "main": "index.js",
   "scripts": {
+    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./api/app.js"
+    "dev": "next",
+    "build": "next build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
@@ -32,10 +35,13 @@
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.11",
     "morgan": "^1.9.1",
+    "next": "^7.0.2",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth2": "^0.1.6",
     "passport-jwt": "^4.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-twitter": "^1.0.4",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   }
 }
