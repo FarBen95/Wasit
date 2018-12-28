@@ -13,4 +13,4 @@ npm-debug.log
 .next
 
 # config files
-/api/config
+/config

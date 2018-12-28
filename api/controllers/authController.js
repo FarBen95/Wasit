@@ -1,34 +1,30 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
+const config = require('../../config/jwt');
+
 exports.auth = (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
-      res.status(401).json({
-        message: 'Authentication failed',
-      });
-    } else if (user.comparePassword(req.body.password)) {
-      const token = jwt.sign(user.id, 'secret');
-      res.status(200).json({
-        message: 'Authentication succeded',
-        token,
-      });
-    } else {
-      res.status(401).json({
-        message: 'Authentication failed',
-      });
+      return res.status(500).json(err);
     }
+    if (user) {
+      if (user.comparePassword(req.body.password)) {
+        const token = jwt.sign(user.id, config.secret);
+        return res.json({
+          message: 'Authentication succeded',
+          token,
+        });
+      }
+    }
+    return res.json({
+      message: 'Authnetication failed',
+    });
   });
 };
 
-exports.GoogleAuth = (req, res) => {
+exports.GoogleAuth = (req, res) => {};
 
-};
+exports.FacebookAuth = (req, res) => {};
 
-exports.FacebookAuth = (req, res) => {
-
-};
-
-exports.TwitterAuth = (req, res) => {
-
-};
+exports.TwitterAuth = (req, res) => {};

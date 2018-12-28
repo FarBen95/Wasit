@@ -29,4 +29,5 @@ exports.updateUser = (req, res) => {
 exports.deleteUser = (req, res) => {
   // TODO: delete authenticated user
   // requires authentication and authorization
+  res.json(req.user);
 };
