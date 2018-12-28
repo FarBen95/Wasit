@@ -34,18 +34,18 @@ app.prepare().then(() => {
   server.use(passport.initialize());
   server.use(morgan('dev'));
 
-  server.get('*', (req, res) => handle(req, res));
+  server.use('/api/v1/publications', publicationRoute);
+  server.use('/api/v1/posts', postsRoute);
+  server.use('/api/v1/users', userRoute);
+  server.use('/api/v1/auth', authRoute);
 
-  server.get('/', (req, res) => {
+  server.get('/api/v1', (req, res) => {
     res.status(200).json({
       message: 'Wasit server v1',
     });
   });
 
-  server.use('/publications', publicationRoute);
-  server.use('/posts', postsRoute);
-  server.use('/users', userRoute);
-  server.use('/auth', authRoute);
+  server.get('*', (req, res) => handle(req, res));
 
   server.listen(port, () => {
     console.log(`Wasit Server running on port ${port}`);
